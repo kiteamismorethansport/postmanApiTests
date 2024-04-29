@@ -26,13 +26,13 @@ jobs:
       continue-on-error: true
 
     - name: Deploy to GitHub Pages
-  run:
-    git config --global user.name 'GitHub Actions'
-    git config --global user.email 'actions@github.com'
-    git fetch
-    git checkout gh-pages || git checkout --orphan gh-pages
-    git rm -rf .
-    mv newman-report.html index.html
-    git add index.html
-    git commit -m "Update Newman report on GitHub Pages"
-    git push -f https://${{ secrets.GH_PAGES_SECRET }}@github.com/${{ github.repository }} gh-pages
+      run: |
+        git config --global user.name 'GitHub Actions'
+        git config --global user.email 'actions@github.com'
+        git fetch
+        git checkout gh-pages || git checkout --orphan gh-pages
+        git rm -rf .
+        mv newman-report.html index.html
+        git add index.html
+        git commit -m "Update Newman report on GitHub Pages"
+        git push -f https://${{ secrets.GH_PAGES_SECRET }}@github.com/${{ github.repository }} gh-pages
