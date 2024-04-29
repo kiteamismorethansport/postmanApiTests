@@ -6,7 +6,7 @@ on:
       - master
 
 jobs:
-  run-newman:
+  test-api:
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +15,7 @@ jobs:
 
     - name: Set up Node.js
       uses: actions/setup-node@v3
-      
+
   - name: Install Newman
       run: npm install -g newman newman-reporter-html
 
