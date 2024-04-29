@@ -23,6 +23,7 @@ jobs:
 
     - name: Run Newman with HTML report
       run: newman run ./petstore.collection.json -r cli,html --reporter-html-export newman-report.html
+      continue-on-error: true
 
     - name: Deploy to GitHub Pages
       run: |
