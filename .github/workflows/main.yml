@@ -35,4 +35,4 @@ jobs:
         mv newman-report.html index.html
         git add index.html
         git commit -m "Update Newman report on GitHub Pages"
-        git push -f https://${{secrets.GH_PAGES_SECRET}}@github.com/${{github.repository}}/gh-pages
+        git push -f https://${{secrets.GH_PAGES_SECRET}}@github.com/${{github.repository}} gh-pages
