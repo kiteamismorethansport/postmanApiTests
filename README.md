@@ -3,7 +3,7 @@
 <a href="https://drive.google.com/file/d/1LQ1uG7Tt70Jubuk5loS4dMSk-1AJ5jzz/view?usp=sharing" /> Intro </a>
 
 ## Task steps / First task
-1. Read: 
+1. Read:  
 - <a href="https://svitla.com/blog/testing-rest-api-with-postman-and-curl"> Postman & Curl & REST article </a> 
 - <a href="https://learning.postman.com/docs/writing-scripts/script-references/test-examples/">Postman tests examples (off doc)</a>
 - <a href="https://drive.google.com/file/d/1ftlfK91TXTS9GH7ufEXsGujop_LpC5ef/view?usp=sharing" /> Manual schema generation </a>
