@@ -16,24 +16,28 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20' 
+        node-version: '18' 
 
-    - name: Install Newman
-      run: npm install -g newman newman-reporter-html
+    - name: Install newman
+        run: |
+          npm install -g newman
+          npm install -g newman-reporter-htmlextra
 
-    - name: Run Newman with HTML report
-      run: newman run ./petstore.collection.json -r cli,html --reporter-html-export newman-report.html
-      continue-on-error: true
 
-    - name: Deploy to GitHub Pages
-      run: |
-        git config --global user.name 'GitHub Actions'
-        git config --global user.email 'actions@github.com'
-        git fetch
-        git branch -D gh-pages || true  # Delete the gh-pages branch if it exists
-        git checkout --orphan gh-pages  # Create a new gh-pages branch
-        git rm -rf .  # Remove all files from previous branch
-        mv newman-report.html index.html  # Rename report for GitHub Pages accessibility
-        git add index.html
-        git commit -m "Update Newman report on GitHub Pages"
-        git push origin gh-pages --force
+      # Make directory to upload the test results
+      - name: Make Directory for results
+        run: mkdir -p testResults
+
+
+      # Run the POSTMAN collection
+      - name: Run POSTMAN collection
+        run: |
+          newman run Demo-My.postman_collection.json -r htmlextra --reporter-htmlextra-export testResults/htmlreport.html --reporter-htmlextra-darkTheme  > testResults/runreport1.html
+
+
+      # Upload the contents of Test Results directory to workspace
+      - name: Output the run Details
+        uses: actions/upload-artifact@v2
+        with:
+          name: RunReports
+          path: testResults 
