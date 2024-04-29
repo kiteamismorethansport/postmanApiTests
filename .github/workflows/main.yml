@@ -18,9 +18,8 @@ jobs:
       with:
         node-version: '18' 
 
-    - name: Install newman
-        run: npm install -g newman newman-reporter-html
-
+    - name: Install Newman
+      run: npm install -g newman newman-reporter-html
 
       # Make directory to upload the test results
       - name: Make Directory for results
