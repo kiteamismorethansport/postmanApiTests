@@ -41,6 +41,6 @@ jobs:
         git add index.html
         git commit -m "Update Newman report on GitHub Pages"
         git push -f https://${{ secrets.GH_PAGES_SECRET }}@github.com/kiteamismorethansport/postmanApiTests gh-pages
-      # This step configures Git with GitHub Actions as the committer, checks out the gh-pages branch,
-      # moves the Newman HTML report to index.html, commits it, and forcefully pushes it to the gh-pages branch.
+      
+      
 
